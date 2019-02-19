@@ -5,8 +5,7 @@ import androidx.room.RoomDatabase
 import com.kevinolivera.ec.data.entities.CartItem
 import com.kevinolivera.ec.data.entities.Product
 
-@Database(entities = [CartItem::class, Product::class], version = 3)
+@Database(entities = [CartItem::class], version = 6)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getCartDao(): CartDao
-    abstract fun getProductDao(): ProductDao
 }

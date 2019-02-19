@@ -14,7 +14,7 @@
             android:id="@+id/textView4"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
-            app:layout_constraintEnd_toStartOf="@+id/tvItems"
+            app:layout_constraintEnd_toStartOf="@+id/tvSubTotal"
             android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"/>
@@ -23,7 +23,7 @@
             android:text="0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvItems"
+            android:id="@+id/tvSubTotal"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp"
             android:textStyle="bold"

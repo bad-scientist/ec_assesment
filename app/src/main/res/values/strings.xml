@@ -14,5 +14,24 @@
 	<string name="continue_shopping">Continue Shopping</string>
 	<string name="activity_cart_header">My Cart</string>
 
+	<!-- Payment -->
+	<string name="activity_payment_header">Payment Details</string>
+	<string name="activity_payment_date">Date</string>
+	<string name="activity_payment_sub_total">Sub Total</string>
+	<string name="activity_payment_tax">Tax</string>
+	<string name="activity_payment_total">Total</string>
+	<string name="activity_payment_card_details">Card Details</string>
+	<string name="activity_payment_card_number">Card Number</string>
+	<string name="activity_payment_expiration_date">Expiration Date(MM/YYYY)</string>
+	<string name="activity_payment_cvv_code">CVV Code</string>
+	<string name="activity_payment_pay_cart">Pay Cart</string>
+
+	<!-- Payment Success -->
+	<string name="dialog_payment_success_title">Payment Success</string>
+	<string name="dialog_payment_success_message1">Your payment amount of ₱ %1$s</string>
+	<string name="dialog_payment_success_message2">was succesfully completed</string>
+	<string name="dialog_payment_success_button">Continue Shopping</string>
+
+
 
 </resources>

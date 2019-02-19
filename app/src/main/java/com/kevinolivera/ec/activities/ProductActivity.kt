@@ -90,12 +90,6 @@ class ProductActivity : AppCompatActivity(), ProductView {
         return true
     }
 
-    override fun onProduct(product: Product) {
-        tvName.text = product.name
-        tvDescription.text = product.description
-        tvPrice.text = "₱ ${product.price}"
-    }
-
     override fun onError(message: String) {
         //Toast.makeText(this, message, Toast.LENGTH_LONG).show()
         tvCount.text = "0"
@@ -105,8 +99,12 @@ class ProductActivity : AppCompatActivity(), ProductView {
     override fun onCartItem(cartItem: CartItem) {
         btnUpdateCart.setText(if (cartItem.productId == 0) R.string.add_to_cart else R.string.udapte_product_on_cart)
         btnUpdateCart.visibility = View.VISIBLE
+
+        tvName.text = cartItem.name
+        tvDescription.text = cartItem.description
+        tvPrice.text = "₱ ${cartItem.price}"
         tvCount.text = "${cartItem.count}"
-        tvTotalPrice.text = "₱ ${cartItem.count * cartItem.product.price}"
+        tvTotalPrice.text = "₱ ${cartItem.count * cartItem.price}"
     }
 
     override fun onCartItemSaved() {

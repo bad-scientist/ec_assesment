@@ -22,4 +22,7 @@ interface CartDao : BaseDao<CartItem> {
 
     @Query("DELETE FROM cartitem WHERE productId = :id")
     fun deleteCartItem(id: Int)
+
+    @Query("DELETE FROM cartitem")
+    fun clear()
 }

@@ -25,10 +25,14 @@ class CartItemHolder(var view: View, var context: Context) :RecyclerHolder<CartI
 
     override fun display(m: CartItem, eventListener: RecyclerAdapter.OnEventListener<CartItem>?) {
         ButterKnife.bind(this, view)
-        tvName.text = "${m.product?.name} (${m.count})"
-        tvDescription.text = m.product?.description
-        tvPrice.text = "₱ ${m.product?.price}"
-        tvTotal.text = "₱ ${m.product?.price!! * m.count}"
+        tvName.text = "${m.name} (${m.count})"
+        tvDescription.text = m.description
+        tvPrice.text = "₱ ${m.price}"
+        tvTotal.text = "₱ ${m.price!! * m.count}"
+        view.setOnClickListener {
+            eventListener?.onSelect(m)
+        }
+
     }
 
     companion object {

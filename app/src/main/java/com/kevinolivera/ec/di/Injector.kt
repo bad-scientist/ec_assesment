@@ -1,6 +1,7 @@
 package com.kevinolivera.ec.di
 
 import com.kevinolivera.ec.activities.CartActivity
+import com.kevinolivera.ec.activities.PaymentActivity
 import com.kevinolivera.ec.activities.ProductActivity
 import com.kevinolivera.ec.activities.ProductsActivity
 import com.kevinolivera.ec.di.modules.AppModule
@@ -15,4 +16,5 @@ interface Injector {
     fun inject(productsActivity: ProductsActivity)
     fun inject(productsActivity: ProductActivity)
     fun inject(cartActivity: CartActivity)
+    fun inject(paymentActivity: PaymentActivity)
 }

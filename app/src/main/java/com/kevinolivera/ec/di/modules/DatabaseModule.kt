@@ -4,9 +4,6 @@ import androidx.room.Room
 import com.kevinolivera.ec.App
 import com.kevinolivera.ec.data.local.AppDatabase
 import com.kevinolivera.ec.data.local.CartDao
-import com.kevinolivera.ec.data.local.ProductDao
-import com.kevinolivera.ec.data.remote.ProductRepository
-import com.kevinolivera.ec.data.remote.api.ProductApi
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -29,9 +26,4 @@ class DatabaseModule {
         return appDatabase.getCartDao()
     }
 
-    @Provides
-    @Singleton
-    fun provideProductDao(appDatabase: AppDatabase): ProductDao {
-        return appDatabase.getProductDao()
-    }
 }

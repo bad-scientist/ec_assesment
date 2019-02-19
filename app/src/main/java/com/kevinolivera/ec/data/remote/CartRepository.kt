@@ -29,9 +29,16 @@ class CartRepository @Inject constructor(var cartDao: CartDao) {
 
     fun saveCartItem (cartItem: CartItem) : Observable<Unit>  {
         return Observable.fromCallable(object : Callable<Unit> {
-            @Throws(Exception::class)
             override fun call() {
                 cartDao.updateCartItem(cartItem)
+            }
+        })
+    }
+
+    fun clearCart () : Observable<Unit>  {
+        return Observable.fromCallable(object : Callable<Unit> {
+            override fun call() {
+                cartDao.clear()
             }
         })
     }

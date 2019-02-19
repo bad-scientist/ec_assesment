@@ -2,7 +2,6 @@ package com.kevinolivera.ec.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.LinearLayout
@@ -18,11 +17,8 @@ import com.kevinolivera.ec.App
 import com.kevinolivera.ec.R
 import com.kevinolivera.ec.adapter.RecyclerAdapter
 import com.kevinolivera.ec.adapter.holde.CartItemHolder
-import com.kevinolivera.ec.adapter.holde.ProductHolder
 import com.kevinolivera.ec.data.entities.CartItem
-import com.kevinolivera.ec.data.entities.Product
 import com.kevinolivera.ec.presenter.CartPresenter
-import com.kevinolivera.ec.presenter.ProductPresenter
 import com.kevinolivera.ec.view.CartView
 import javax.inject.Inject
 
@@ -31,7 +27,7 @@ class CartActivity : AppCompatActivity(), CartView {
     @BindView(R.id.rvCartItems)
     lateinit var rvCartItems: RecyclerView
 
-    @BindView(R.id.tvItems)
+    @BindView(R.id.tvSubTotal)
     lateinit var tvItems: TextView
 
     @BindView(R.id.tvTotal)
@@ -47,6 +43,8 @@ class CartActivity : AppCompatActivity(), CartView {
     lateinit var cartPresenter: CartPresenter
 
     lateinit var cartAdapter: RecyclerAdapter<CartItemHolder, CartItem>
+
+    var total = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,6 +77,8 @@ class CartActivity : AppCompatActivity(), CartView {
 
         cartPresenter.initialize(this)
         cartPresenter.getCartItems()
+
+        btnPayCart.setOnClickListener { cartPresenter.payCart() }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -95,12 +95,15 @@ class CartActivity : AppCompatActivity(), CartView {
         //TODO
     }
 
-    override fun onCartItems(cartItems: MutableList<CartItem>) {
+    override fun onCartItems(cartItems: MutableList<CartItem>, count: Int, total: Double) {
+        this.total = total
         cartAdapter.setList(cartItems)
+        tvItems.text = "$count"
+        tvTotalPrice.text = "₱ $total"
     }
 
     override fun onPayment() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        PaymentActivity.startActivity(this, total)
     }
 
     companion object {

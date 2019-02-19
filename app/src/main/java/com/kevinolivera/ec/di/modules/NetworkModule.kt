@@ -2,6 +2,7 @@ package com.kevinolivera.ec.di.modules
 
 import com.kevinolivera.ec.BuildConfig
 import com.kevinolivera.ec.data.remote.ProductRepository
+import com.kevinolivera.ec.data.remote.api.PaymentApi
 import com.kevinolivera.ec.data.remote.api.ProductApi
 import dagger.Module
 import dagger.Provides
@@ -41,7 +42,10 @@ class NetworkModule {
     }
 
     @Provides
-    fun provideProductRepository(retrofit: Retrofit) : ProductApi =
+    fun provideProductApi(retrofit: Retrofit) : ProductApi =
         retrofit.create(ProductApi::class.java)
 
+    @Provides
+    fun providePaymentApi(retrofit: Retrofit) : PaymentApi =
+        retrofit.create(PaymentApi::class.java)
 }

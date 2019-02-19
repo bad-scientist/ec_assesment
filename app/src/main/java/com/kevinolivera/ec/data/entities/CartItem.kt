@@ -9,9 +9,17 @@ import com.google.gson.reflect.TypeToken
 
 @Entity
 data class CartItem(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     var count: Int = 0,
     var productId: Int = 0,
-    @Ignore
-    var product: Product = Product())
+    var name: String = "",
+    var description: String = "",
+    var price: Double = 0.0) {
+
+    fun setProduct (product: Product) {
+        name = product.name
+        description = product.description
+        price = product.price
+    }
+}
