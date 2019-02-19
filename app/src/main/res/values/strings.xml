@@ -1,0 +1,18 @@
+<resources
+	tools:ignore="ExtraTranslation"
+	xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name">My Application</string>
+	<string name="activity_products_product_list">Product List</string>
+	<string name="product">Product</string>
+	<string name="udapte_product_on_cart">Update Product on Cart</string>
+	<string name="add_to_cart">Add to Cart</string>
+	<string name="cart_updated">Cart Updated!</string>
+	<string name="cart_updated_message">Your cart is updated.</string>
+	<string name="count">Count:</string>
+	<string name="view_cart">View Cart</string>
+	<string name="continue_shopping">Continue Shopping</string>
+	<string name="activity_cart_header">My Cart</string>
+
+
+</resources>
